@@ -1,5 +1,4 @@
 # MonologPushoverCurl
-================
 Implementation of Pushover.net notifications for logs using cURL as the transport mechanism. Allows for HTTP Proxy use where required.
 
 ## Requirements
@@ -7,8 +6,7 @@ Implementation of Pushover.net notifications for logs using cURL as the transpor
 - Monolog 3.0 or higher
 
 ## Installation
-Installation via Composer
-`composer require jonshawpzbp/monolog-pushovercurl`
+Installation via Composer: `composer require jonshawpzbp/monolog-pushovercurl`
 
 ## Example
 See `example.php` file.
