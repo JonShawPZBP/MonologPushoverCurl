@@ -1,5 +1,7 @@
 <?php
 
+namespace MonologPushoverCurl;
+
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\LogRecord;
@@ -17,7 +19,7 @@ class PushoverCurlHandler extends AbstractProcessingHandler
     private string $user;
     private string $title;
     private string $proxyUrl;
-    private CurlHandle $curl;
+    private \CurlHandle $curl;
 
     /**
      * @param string       $token   Pushover api token
@@ -31,7 +33,7 @@ class PushoverCurlHandler extends AbstractProcessingHandler
     public function __construct(
         string $token,
         string $user,
-        ?string $title = null,
+        ?string $title = null, 
         ?string $proxyUrl = null,
         int|string|Level $level = Level::Critical,
         bool $bubble = true
@@ -41,7 +43,7 @@ class PushoverCurlHandler extends AbstractProcessingHandler
         $this->token = $token;
         $this->user  = $user;
         $this->title = $title ?? (string) gethostname();
-        $this->proxyUrl = $proxyUrl;
+        $this->proxyUrl = $proxyUrl ?? false;
     }
 
     protected function write(LogRecord $record): void

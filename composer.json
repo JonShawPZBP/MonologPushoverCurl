@@ -1,0 +1,26 @@
+{
+    "name": "jonshawpzbp/monolog-pushovercurl",
+    "description": "Implementation of Pushover.net notifications for logs using cURL as the transport mechanism. Allows for HTTP Proxy use where required.",
+    "readme": "README.md",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jonathan Shaw",
+            "email": "jonathan.shaw@pzbp.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">= 8.1",
+        "monolog/monolog": "^3.0"
+    },
+   
+    "autoload": {
+        "psr-4": {
+            "MonologPushoverCurl\\": "src/"
+        }
+    },
+    
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
