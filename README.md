@@ -4,6 +4,7 @@ Implementation of Pushover.net notifications for logs using cURL as the transpor
 ## Requirements
 - PHP 8.1 or higher
 - Monolog 3.0 or higher
+- cURL extension for PHP
 
 ## Installation
 Installation via Composer: `composer require jonshawpzbp/monolog-pushovercurl`
