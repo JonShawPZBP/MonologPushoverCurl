@@ -28,7 +28,7 @@ class PushoverCurlHandler extends AbstractProcessingHandler
      * @param string|null  $title   Title sent to the Pushover API
      * @param string|null  $proxyUrl Whether to connect via a HTTP Proxy.
      * @param int|string|Level $level The minimum logging level at which this handler will be triggered.
-     * @param int          $prioriy Pushover priority alert level - default is 0 (Normal)
+     * @param int          $priority Pushover priority alert level - default is 0 (Normal)
      * @param bool $bubble Whether the messages that are handled can bubble up the stack or not.
      *
      */
