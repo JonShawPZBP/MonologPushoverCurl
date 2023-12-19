@@ -19,6 +19,7 @@ class PushoverCurlHandler extends AbstractProcessingHandler
     private string $user;
     private string $title;
     private string $proxyUrl;
+    private int $priority;
     private \CurlHandle $curl;
 
     /**
@@ -27,6 +28,7 @@ class PushoverCurlHandler extends AbstractProcessingHandler
      * @param string|null  $title   Title sent to the Pushover API
      * @param string|null  $proxyUrl Whether to connect via a HTTP Proxy.
      * @param int|string|Level $level The minimum logging level at which this handler will be triggered.
+     * @param int          $prioriy Pushover priority alert level - default is 0 (Normal)
      * @param bool $bubble Whether the messages that are handled can bubble up the stack or not.
      *
      */
@@ -36,6 +38,7 @@ class PushoverCurlHandler extends AbstractProcessingHandler
         ?string $title = null, 
         ?string $proxyUrl = null,
         int|string|Level $level = Level::Critical,
+        int $priority = 0,
         bool $bubble = true
     ) {
         parent::__construct($level, $bubble);
@@ -44,6 +47,7 @@ class PushoverCurlHandler extends AbstractProcessingHandler
         $this->user  = $user;
         $this->title = $title ?? (string) gethostname();
         $this->proxyUrl = $proxyUrl ?? false;
+        $this->priority = $priority;
     }
 
     protected function write(LogRecord $record): void
@@ -57,7 +61,7 @@ class PushoverCurlHandler extends AbstractProcessingHandler
             "user" => $this->user,
             "title" => $this->title,
             "message" => $record->formatted,
-            "priority" => 2,
+            "priority" => $this->priority,
             "retry" => "300",
             "expire" => "3600"
         )
